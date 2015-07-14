@@ -18,9 +18,9 @@ function getPushMessage(params) {
     badge: "Increment",
     sound: "cheering.caf”,
 //    ,"_profile": "dev”,    //设置证书，开发时用 dev，生产环境不设置
-    "bizParam":{
+    "bizParam”:[{
 	"msgType":1
-    }    
+    }]    
   };
   var msg = JSON.parse(contentStr);
   var msgDesc = getMsgDesc(msg);
