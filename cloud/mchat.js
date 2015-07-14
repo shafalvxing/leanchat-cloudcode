@@ -17,9 +17,9 @@ function getPushMessage(params) {
   var json = {
     badge: "Increment",
     sound: "cheering.caf",
-    "bizParam":[{
+    "bizParam":{
 	"msgType":1
-    }] 
+    }
   };
   var msg = JSON.parse(contentStr);
   var msgDesc = getMsgDesc(msg);
