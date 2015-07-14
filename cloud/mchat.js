@@ -19,7 +19,7 @@ function getPushMessage(params) {
     sound: "cheering.caf"
 //    ,"_profile": "dev"      //设置证书，开发时用 dev，生产环境不设置
     bizParam:{
-	msgType:1
+	"msgType":1
     }    
   };
   var msg = JSON.parse(contentStr);
