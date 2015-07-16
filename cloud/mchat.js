@@ -54,9 +54,11 @@ function receiversOffline(req, res) {
     // api v2
     try{
       var pushMessage = getPushMessage(req.params);
+      console.log('pushMessage :' + pushMessage);
       res.success({pushMessage: pushMessage});
     } catch(err) {
       // json parse error
+      console.dir(err);
       res.success();
     }
   } else {
