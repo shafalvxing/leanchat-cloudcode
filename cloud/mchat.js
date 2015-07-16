@@ -54,7 +54,7 @@ function receiversOffline(req, res) {
     // api v2
     try{
       var pushMessage = getPushMessage(req.params);
-      console.log('pushMessage :' + pushMessage);
+      console.log('pushMessage :' + pushMessage + ' offlinePeers:' + req.params.offlinePeers);
       res.success({pushMessage: pushMessage});
     } catch(err) {
       // json parse error
