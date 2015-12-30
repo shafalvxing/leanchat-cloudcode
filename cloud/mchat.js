@@ -31,6 +31,9 @@ function getPushMessage(params) {
   if (msg._lcattrs && msg._lcattrs.dev) {
     json._profile = "dev";
   }
+  if(msg._lcattrs && msg._lcattrs.orderMsgType){
+    json.bizParam.msgType = msg._lcattrs.orderMsgType;
+  }
   return JSON.stringify(json);
 }
 
