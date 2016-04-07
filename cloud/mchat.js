@@ -64,9 +64,9 @@ function receiversOffline(req, res) {
     try{
       var pushMessage = getPushMessage(req.params);
       console.log('pushMessage :' + pushMessage + ' offlinePeers:' + req.params.offlinePeers);
-      res.success({pushMessage: pushMessage});
       //对方离线发送短信
       sofaSendMsg(req.params.fromPeer,req.params.offlinePeers[0],req.params.content,req.params.convId);
+      res.success({pushMessage: pushMessage});
     } catch(err) {
       // json parse error
       console.dir(err);
