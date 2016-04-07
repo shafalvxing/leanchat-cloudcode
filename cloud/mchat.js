@@ -34,12 +34,6 @@ function getPushMessage(params) {
   if(msg._lcattrs && msg._lcattrs.orderMsgType){
     json.bizParam.msgType = msg._lcattrs.orderMsgType;
   }
-  if(msg._lcattrs && msg._lcattrs.businessId){
-    json.bizParam.businessId = msg._lcattrs.businessId;
-  }
-  if(msg._lcattrs && msg._lcattrs.orderId){
-    json.bizParam.orderId = msg._lcattrs.orderId;
-  }
   return JSON.stringify(json);
 }
 
