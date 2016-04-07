@@ -17,9 +17,9 @@ function getPushMessage(params) {
   var json = {
     badge: "Increment",
     sound: "cheering.caf",
-	"bizParam":{
-	"msgType":1
-	}
+  "bizParam":{
+  "msgType":1
+  }
   };
   var msg = JSON.parse(contentStr);
   var msgDesc = getMsgDesc(msg);
@@ -33,6 +33,12 @@ function getPushMessage(params) {
   }
   if(msg._lcattrs && msg._lcattrs.orderMsgType){
     json.bizParam.msgType = msg._lcattrs.orderMsgType;
+  }
+  if(msg._lcattrs && msg._lcattrs.businessId){
+    json.bizParam.businessId = msg._lcattrs.businessId;
+  }
+  if(msg._lcattrs && msg._lcattrs.orderId){
+    json.bizParam.orderId = msg._lcattrs.orderId;
   }
   return JSON.stringify(json);
 }
