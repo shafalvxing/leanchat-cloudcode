@@ -114,10 +114,10 @@ function conversationAdd(req,res){
         }
         //创建 script 标签并加入到页面中
         var callbackName = ('jsonp_' + Math.random()).replace(".", "");
-        var oHead = document.getElementsByTagName('head')[0];
+        var oHead = window.document.getElementsByTagName('head')[0];
         options.data[options.callback] = callbackName;
         var params = sofaFormatParams(options.data);
-        var oS = document.createElement('script');
+        var oS = window.document.createElement('script');
         oHead.appendChild(oS);
 
         //创建jsonp回调函数
