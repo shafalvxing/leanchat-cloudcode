@@ -94,10 +94,10 @@ function conversationAdd(req,res){
 }
 
 function sofaSendMsg(fromPeer,offlinePeer,content,convId){
-  var dataStr = "{" + '\"fromPeer\":' + '\"' + fromPeer + "\","
-            + '\"offlinePeer\":' + '\"' + offlinePeer + "\","
-            + '\"content\":' + '\"' + content + "\","
-            + '\"convId\":' + '\"' + convId + "\"}";
+  var dataStr = "{" + '"fromPeer":' + '"' + fromPeer + '",'
+            + '"offlinePeer":' + '"' + offlinePeer + '",'
+            + '"content":' + '"' + content + '",'
+            + '"convId":' + '"' + convId + '"}';
   AV.Cloud.httpRequest({
     url: 'http://www.shafalvxing.com/jsonp/sendInTimeMsgTip.do',
     params: {
