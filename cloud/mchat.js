@@ -64,6 +64,8 @@ function receiversOffline(req, res) {
     try{
       var pushMessage = getPushMessage(req.params);
       console.log('pushMessage :' + pushMessage + ' offlinePeers:' + req.params.offlinePeers);
+      //对方离线发送短信
+      sofaSendMsg(req.params.fromPeer,req.params.offlinePeers[0],req.params.content,req.params.convId);
       res.success({pushMessage: pushMessage});
     } catch(err) {
       // json parse error
@@ -89,6 +91,25 @@ function conversationRemove(req,res){
 function conversationAdd(req,res){
   console.log('conversationAdd');
   res.success();
+}
+
+function sofaSendMsg(fromPeer,offlinePeer,content,convId){
+  var dataStr = "{" + '\"fromPeer\":' + '\"' + fromPeer + "\","
+            + '\"offlinePeer\":' + '\"' + offlinePeer + "\","
+            + '\"content\":' + '\"' + content + "\","
+            + '\"convId\":' + '\"' + convId + "\"}";
+  AV.Cloud.httpRequest({
+    url: 'http://www.shafalvxing.com/jsonp/sendInTimeMsgTip.do',
+    params: {
+      "bizParams" : dataStr
+    },
+    success: function(httpResponse) {
+      console.log(httpResponse.text);
+    },
+    error: function(httpResponse) {
+      console.error('Request failed with response code ' + httpResponse.status);
+    }
+  });
 }
 
 exports.messageReceived = messageReceived;
