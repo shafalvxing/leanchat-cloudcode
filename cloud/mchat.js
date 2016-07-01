@@ -64,6 +64,7 @@ function receiversOffline(req, res) {
     try{
       var content = req.params.content;
       if(content && content.indexOf('orderstatus')  >= 0 ){
+        res.success({skip: true});
         return;
       }
       var pushMessage = getPushMessage(req.params);
