@@ -64,6 +64,10 @@ function receiversOffline(req, res) {
     try{
       var pushMessage = getPushMessage(req.params);
       console.log('pushMessage :' + pushMessage + ' offlinePeers:' + req.params.offlinePeers);
+      var content = req.params.content;
+      if(content && content.indexOf('orderstatus' >= 0)){
+        return;
+      }
       //对方离线发送短信
       sofaSendMsg(req.params.fromPeer,req.params.offlinePeers[0],req.params.content,req.params.convId);
       res.success({pushMessage: pushMessage});
