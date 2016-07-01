@@ -62,12 +62,12 @@ function receiversOffline(req, res) {
   if (req.params.convId) {
     // api v2
     try{
-      var pushMessage = getPushMessage(req.params);
-      console.log('pushMessage :' + pushMessage + ' offlinePeers:' + req.params.offlinePeers);
       var content = req.params.content;
-      if(content && content.indexOf('orderstatus' >= 0)){
+      if(content && content.indexOf('orderstatus')  >= 0 ){
         return;
       }
+      var pushMessage = getPushMessage(req.params);
+      console.log('pushMessage :' + pushMessage + ' offlinePeers:' + req.params.offlinePeers);
       //对方离线发送短信
       sofaSendMsg(req.params.fromPeer,req.params.offlinePeers[0],req.params.content,req.params.convId);
       res.success({pushMessage: pushMessage});
